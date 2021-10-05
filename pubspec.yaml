@@ -24,7 +24,8 @@ dependencies:
   flutter:
     sdk: flutter
 
-  # library to use streams 
+  # library to use streams cd ../
+
   rxdart:
   http: 
   # The following adds the Cupertino Icons font to your application.
@@ -36,8 +37,9 @@ dependencies:
   flutter_credit_card: ^2.0.0
   barcode_widget: ^2.0.1
   flutter_grid_button: ^2.0.0
-  # auto_size_text:
+  auto_size_text_pk:
   sqflite:
+  material_floating_search_bar: ^0.3.4
 
 
 dev_dependencies:

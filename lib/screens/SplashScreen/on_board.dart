@@ -75,7 +75,7 @@ class _OnBoardState extends State<OnBoard> {
             padding: const EdgeInsets.only(top: 8.0),
             child: TextButton(
               onPressed: () {
-                Navigator.pushNamed(context, '/signIn');
+                Navigator.pushNamed(context, '/loginForm');
               },
               child: Text(
                 'Skip',

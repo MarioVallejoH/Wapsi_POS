@@ -22,22 +22,43 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Color.fromRGBO(0, 97, 224, 1),
         scaffoldBackgroundColor: Colors.white,
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all(Colors.green)
+          )
+        ),
         primaryTextTheme: TextTheme(
           button: TextStyle(
             color: Colors.white
           ),
           bodyText1: TextStyle(
             color: Colors.black
-          )
+          ),
+          bodyText2: TextStyle(
+            color: Colors.white
+          ),
+          headline6: TextStyle(
+            color: Colors.white
+          ),
           // primary Theme for text
         ),
         iconTheme: IconThemeData(
+          color: Colors.black
+        ),
+        primaryIconTheme: IconThemeData(
           color: Colors.white
+        ),
+        accentIconTheme: IconThemeData(
+          color: Colors.white
+        ),
+        buttonTheme: ButtonThemeData(
+          textTheme: ButtonTextTheme.primary
         ),
         
         textTheme: TextTheme(
           button: TextStyle(
-            color: Colors.white
+            color: Colors.white,
+            fontSize: 17
           ),
         ),
         backgroundColor: Colors.white

@@ -77,7 +77,7 @@ class _LoginFormState extends State<LoginForm> {
                     buttonDecoration:
                         kButtonDecoration.copyWith(color: Theme.of(context).primaryColor),
                     onPressed: (){
-                      Navigator.pushNamed(context, '/db_sync');
+                      Navigator.pushNamed(context, '/cash');
                     }
                 ),
                 

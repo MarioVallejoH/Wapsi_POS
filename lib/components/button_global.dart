@@ -35,7 +35,7 @@ class ButtonGlobal extends StatelessWidget {
             ),
             Icon(
               iconWidget,
-              color: Theme.of(context).iconTheme.color,
+              color: Theme.of(context).accentIconTheme.color,
             ),
           ],
         ),

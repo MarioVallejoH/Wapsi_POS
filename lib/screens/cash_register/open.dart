@@ -43,30 +43,9 @@ class _OtpPageState extends State<OtpPage> {
                   ),
                 ),
                 OpenForm(pressed:  (){
-                  Navigator.pushNamed(context, '/success');
+                  Navigator.pushNamed(context, '/home');
                 },),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Didn\'t get any code?',
-                      style: GoogleFonts.poppins(
-                        color: kGreyTextColor,
-                        fontSize: 15.0,
-                      ),
-                    ),
-                    TextButton(
-                      onPressed: null,
-                      child: Text(
-                        'Resend Code',
-                        style: GoogleFonts.poppins(
-                          color: Theme.of(context).primaryColor,
-                          fontSize: 15.0,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
+              
               ],
             ),
           ),
