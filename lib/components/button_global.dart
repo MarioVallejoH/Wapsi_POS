@@ -19,6 +19,7 @@ class ButtonGlobal extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextButton(
       onPressed: onPressed,
+      
       child: Container(
         width: double.infinity,
         padding: const EdgeInsets.only(top: 10.0, bottom: 10.0),

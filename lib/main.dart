@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import 'package:nb_utils/nb_utils.dart';
 import 'package:pos_wappsi/routes.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(Colors.green)
+            // backgroundColor: MaterialStateProperty.all(Colors.green)
           )
         ),
         primaryTextTheme: TextTheme(
@@ -55,11 +56,8 @@ class MyApp extends StatelessWidget {
           textTheme: ButtonTextTheme.primary
         ),
         
-        textTheme: TextTheme(
-          button: TextStyle(
-            color: Colors.white,
-            fontSize: 17
-          ),
+        textTheme: GoogleFonts.poppinsTextTheme(
+          Theme.of(context).textTheme,
         ),
         backgroundColor: Colors.white
       ),

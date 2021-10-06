@@ -18,24 +18,21 @@ List<GridItems> freeIcons = [
   // ),
 
   GridItems(
-    title: 'Cotizar',
-    route: "",
-    icon: 'assets/images/calculator.png',
-
+    title: 'Inventario',
+    route: "stock",
+    icon: 'assets/images/stock.png',
   ),
-  
-  
+
   GridItems(
     title: 'Clientes',
     route: "",
     icon: 'assets/images/customer.png',
 
   ),
-  GridItems(
-    title: 'Inventario',
-    route: "stock",
-    icon: 'assets/images/stock.png',
-  ),
+  
+  
+  
+  
   GridItems(
     title: 'Reportes',
     route: "",

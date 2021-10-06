@@ -168,7 +168,7 @@ class _HomeScreenState extends State<HomeScreen> {
             width: 10.0,
           ),
           Text(
-            'Free',
+            'Funcionalidades',
             style: GoogleFonts.poppins(
               color: Colors.black,
               fontWeight: FontWeight.bold,
@@ -191,8 +191,11 @@ class _HomeScreenState extends State<HomeScreen> {
         crossAxisCount: 4,
         children: List.generate(
           freeIcons.length,
-          (index) => HomeGridCards(
-            gridItems: freeIcons[index],
+          (index) => FittedBox(
+            fit: BoxFit.fitWidth,
+            child: HomeGridCards(
+              gridItems: freeIcons[index],
+            ),
           ),
         ),
       ),
@@ -210,7 +213,7 @@ class _HomeScreenState extends State<HomeScreen> {
             width: 10.0,
           ),
           Text(
-            'What\'s New',
+            'Novedades',
             style: GoogleFonts.poppins(
               color: Colors.black,
               fontWeight: FontWeight.bold,

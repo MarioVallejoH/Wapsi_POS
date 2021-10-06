@@ -2,10 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:pos_wappsi/screens/Authentication/login_form.dart';
-import 'package:pos_wappsi/screens/cash_register/open.dart';
-
 import 'package:pos_wappsi/screens/SplashScreen/on_board.dart';
 import 'package:pos_wappsi/screens/SplashScreen/splash_screen.dart';
+import 'package:pos_wappsi/screens/cash_accounting/open.dart';
 import 'package:pos_wappsi/screens/db_sync/db_sync.dart';
 import 'package:pos_wappsi/screens/home/home.dart';
 import 'package:pos_wappsi/screens/products/products.dart';
