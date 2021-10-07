@@ -5,14 +5,14 @@ import 'package:pos_wappsi/screens/sales/components/product_card.dart';
 
 import 'package:pos_wappsi/screens/sales/components/search.dart';
 
-class NewSale extends StatefulWidget {
-  NewSale({Key? key}) : super(key: key);
+class SaleCart extends StatefulWidget {
+  SaleCart({Key? key}) : super(key: key);
 
   @override
-  _NewSaleState createState() => _NewSaleState();
+  _SaleCartState createState() => _SaleCartState();
 }
 
-class _NewSaleState extends State<NewSale> {
+class _SaleCartState extends State<SaleCart> {
 
 
   final actions = [

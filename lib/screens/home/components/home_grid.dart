@@ -1,6 +1,9 @@
 import 'package:auto_size_text_pk/auto_size_text_pk.dart';
 import 'package:flutter/material.dart';
 import 'package:pos_wappsi/screens/home/components/grid_items.dart';
+import 'package:nb_utils/nb_utils.dart';
+import 'package:pos_wappsi/screens/products/products.dart';
+import 'package:pos_wappsi/screens/sales/new_sale.dart';
 
 class HomeGridCards extends StatelessWidget {
   const HomeGridCards({Key? key, required this.gridItems}) : super(key: key);
@@ -14,7 +17,9 @@ class HomeGridCards extends StatelessWidget {
         children: [
           TextButton(
             onPressed: () {
-              Navigator.pushNamed(context, '/${gridItems.route}');
+              // Navigator.pushNamed(context, '/${gridItems.route}');
+
+              _navigation(context);
             },
             child: Container(
               width: _size.width * 0.2,
@@ -39,5 +44,13 @@ class HomeGridCards extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  void _navigation(BuildContext context) {
+    if(gridItems.route=='sales'){
+      NewSale().launch(context);
+    }else if(gridItems.route=='products'){
+      Products().launch(context);
+    }
   }
 }

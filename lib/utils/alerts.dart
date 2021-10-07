@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:pos_wappsi/providers/cash_accounting_form_provider.dart';
-import 'package:provider/provider.dart';
+import 'package:nb_utils/nb_utils.dart';
+
 
 void simpleAlert(BuildContext context, String msj, String img) {
   final size = MediaQuery.of(context).size;
@@ -85,6 +85,29 @@ choiceAlert(BuildContext context, String msj, String img) async {
           ],
         );
       });
+  return result;
+}
+
+
+
+
+choiceAlertAndroid(BuildContext context, String msj,) async {
+  // final size = MediaQuery.of(context).size;
+
+  bool result = false;
+
+  await showConfirmDialogCustom(
+      context,
+      title: msj,
+      negativeText: 'Cancelar',
+      positiveText: 'Aceptar',
+      onAccept: (_) {
+        result = true;
+      },
+      onCancel: (_) {
+      }
+    );
+  
   return result;
 }
 

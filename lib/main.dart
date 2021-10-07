@@ -23,9 +23,21 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Color.fromRGBO(0, 97, 224, 1),
         scaffoldBackgroundColor: Colors.white,
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.white,
+          textTheme: TextTheme(
+            headline6: TextStyle(
+              color: Colors.black,
+              fontSize: 20
+            )
+          )
+        ),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ButtonStyle(
             // backgroundColor: MaterialStateProperty.all(Colors.green)
+            elevation: MaterialStateProperty.all(5),
+            backgroundColor: MaterialStateProperty.all(Colors.white),
+            
           )
         ),
         primaryTextTheme: TextTheme(
@@ -53,7 +65,7 @@ class MyApp extends StatelessWidget {
           color: Colors.white
         ),
         buttonTheme: ButtonThemeData(
-          textTheme: ButtonTextTheme.primary
+          // textTheme: ButtonTextTheme.primary
         ),
         
         textTheme: GoogleFonts.poppinsTextTheme(

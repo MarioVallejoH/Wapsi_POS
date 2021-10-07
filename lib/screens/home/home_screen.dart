@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:pos_wappsi/components/basic_widgets.dart';
 import 'package:pos_wappsi/screens/Notifications/notification_screen.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:pos_wappsi/screens/home/components/grid_items.dart';
@@ -28,12 +29,30 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Scaffold(
-        resizeToAvoidBottomInset: true,
-        body: _body(),
-      ),
-    );
+        child: Scaffold(
+          resizeToAvoidBottomInset: true,
+          body: _body(),
+        ),
+      ); 
+      
+
   }
+
+  // onWillPop: () async {
+  //       final isFirstRouteInCurrentTab =
+  //           !await _navigatorKeys[_currentTab]!.currentState!.maybePop();
+  //       if (isFirstRouteInCurrentTab) {
+  //         // if not on the 'main' tab
+  //         if (_currentTab != TabItem.red) {
+  //           // select 'main' tab
+  //           _selectTab(TabItem.red);
+  //           // back button handled by app
+  //           return false;
+  //         }
+  //       }
+  //       // let system handle back button if we're on the first route
+  //       return isFirstRouteInCurrentTab;
+  //     },
 
   Widget _body() {
     return SingleChildScrollView(
@@ -57,13 +76,13 @@ class _HomeScreenState extends State<HomeScreen> {
         padding: const EdgeInsets.all(10.0),
         child: Row(
           children: [
-            _profile_image(),
+            wappsiLogo(),
             SizedBox(
               width: 10.0,
             ),
             _userKind(),
             Spacer(),
-            _cash(),
+            // _cash(),
             SizedBox(
               width: 10.0,
             ),
@@ -100,40 +119,27 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  // display image from user and allows to go to user data
-  Widget _profile_image() {
-    return GestureDetector(
-      onTap: () {
-        // ProfileDetails().launch(context);
-      },
-      child: Image(
-        image: AssetImage('assets/images/profile.png'),
-        height: 42,
-        width: 42,
-      ),
-    );
-  }
 
   // show how much money do the user have in cash_register
-  Widget _cash() {
-    return Container(
-      height: 40.0,
-      width: 86.0,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10.0),
-        color: Color(0xFFD9DDE3).withOpacity(0.5),
-      ),
-      child: Center(
-        child: Text(
-          '\$ 450',
-          style: GoogleFonts.poppins(
-            fontSize: 20.0,
-            color: Colors.black,
-          ),
-        ),
-      ),
-    );
-  }
+  // Widget _cash() {
+  //   return Container(
+  //     height: 40.0,
+  //     width: 86.0,
+  //     decoration: BoxDecoration(
+  //       borderRadius: BorderRadius.circular(10.0),
+  //       color: Color(0xFFD9DDE3).withOpacity(0.5),
+  //     ),
+  //     child: Center(
+  //       child: Text(
+  //         '\$ 450',
+  //         style: GoogleFonts.poppins(
+  //           fontSize: 20.0,
+  //           color: Colors.black,
+  //         ),
+  //       ),
+  //     ),
+  //   );
+  // }
 
   // show notification icon and shows notification's page
   Widget _notifications() {

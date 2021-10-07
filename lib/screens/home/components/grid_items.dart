@@ -7,7 +7,7 @@ class GridItems {
 List<GridItems> freeIcons = [
   GridItems(
     title: 'Nueva venta',
-    route: "newSale",
+    route: "sales",
     icon: 'assets/images/cart.png',
 
   ),
@@ -18,14 +18,14 @@ List<GridItems> freeIcons = [
   // ),
 
   GridItems(
-    title: 'Inventario',
-    route: "stock",
+    title: 'Productos',
+    route: "products",
     icon: 'assets/images/stock.png',
   ),
 
   GridItems(
     title: 'Clientes',
-    route: "",
+    route: "sotck",
     icon: 'assets/images/customer.png',
 
   ),
@@ -34,15 +34,15 @@ List<GridItems> freeIcons = [
   
   
   GridItems(
-    title: 'Reportes',
-    route: "",
-    icon: 'assets/images/reports.png',
+    title: 'Caja',
+    route: "products",
+    icon: 'assets/images/cash-register.png',
 
   ),
   
   GridItems(
     title: 'Entregas',
-    route: "",
+    route: "products",
     icon: 'assets/images/delivery.png',
 
   ),

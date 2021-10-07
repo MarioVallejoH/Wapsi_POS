@@ -76,6 +76,7 @@ class _LoginFormInputsState extends State<LoginFormInputs> {
       },
       onFieldSubmitted: (_) => _login(loginForm, context),
       decoration: InputDecoration(
+        
         enabledBorder: OutlineInputBorder(),
         focusedBorder: UnderlineInputBorder(borderSide: BorderSide(width: 2)),
         prefixIcon: Icon(Icons.password),
@@ -86,11 +87,15 @@ class _LoginFormInputsState extends State<LoginFormInputs> {
   }
 
   Widget _userName(LoginFormProvider loginForm) {
-    return AppTextField(
-      textFieldType: TextFieldType.USERNAME,
-      focus: userFocusNode,
-      controller: TextEditingController(),
-      nextFocus: passwordFocusNode,
+    return TextFormField(
+      // textFieldType: TextFieldType.USERNAME,
+      // focus: userFocusNode,
+      focusNode: userFocusNode,
+      // controller: TextEditingController(),
+      keyboardType: TextInputType.text,
+      initialValue: loginForm.user,
+      // nextFocus: passwordFocusNode,
+      
       validator: (value) {
         if (value!.length == 0) {
           return "Debe suministrar un nombre de usuario";
@@ -98,6 +103,9 @@ class _LoginFormInputsState extends State<LoginFormInputs> {
       },
       onChanged: (value) {
         loginForm.passsword = value;
+      },
+      onFieldSubmitted: (_){
+        passwordFocusNode.requestFocus();
       },
       decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(),
@@ -152,9 +160,11 @@ class _LoginFormInputsState extends State<LoginFormInputs> {
         // and we need to load its value to cashAccountingProvider
         
         // TODO: use Navigator.psuhReplacementName() instead of pushNamed
-
+        loginForm.isLoading=false;
         Navigator.pushNamed(context, '/cash');
       });
+    }else{
+      userFocusNode.requestFocus();
     }
   }
 }

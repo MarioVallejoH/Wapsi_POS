@@ -100,9 +100,10 @@ class _OpenFormState extends State<OpenForm> {
     
     _value.unfocus();
 
+    
 
     
-    if(await choiceAlert(context, 'No ha digitado un valor, el valor por defecto es \$ 0.0. ¿Desea continuar?', 'assets/images/alert.png')){
+    if(await choiceAlertAndroid(context,'No ha digitado un valor, el valor por defecto es \$ 0.0. ¿Desea continuar?')){
 
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text('Abriendo caja...'),
