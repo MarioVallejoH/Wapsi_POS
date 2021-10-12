@@ -32,6 +32,7 @@ OutlineInputBorder outlineInputBorder() {
     borderSide: const BorderSide(color: kBorderColorTextField),
   );
 }
+
 final otpInputDecoration = InputDecoration(
   contentPadding: const EdgeInsets.symmetric(vertical: 5.0),
   border: outlineInputBorder(),
@@ -39,4 +40,4 @@ final otpInputDecoration = InputDecoration(
   enabledBorder: outlineInputBorder(),
 );
 
-
+String URL = 'http://127.0.0.1:8000';

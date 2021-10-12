@@ -1,5 +1,8 @@
 
 
+import 'dart:convert';
+
+import 'package:crypto/crypto.dart';
 import 'package:flutter/material.dart';
 
 class LoginFormProvider extends ChangeNotifier{
@@ -17,6 +20,14 @@ class LoginFormProvider extends ChangeNotifier{
     notifyListeners();
   }
 
+
+  String _encodePass(){
+    var bytes = utf8.encode(passsword); // data being hashed
+
+    var digest = sha1.convert(bytes);
+    return digest.toString();
+  }
+
   
 
   GlobalKey <FormState> formKey = new GlobalKey<FormState>();
@@ -27,4 +38,10 @@ class LoginFormProvider extends ChangeNotifier{
     return formKey.currentState?.validate() ?? false;
 
   } 
+
+  Map<String,dynamic> toJson(){
+    return {'username':user, 'password':_encodePass()};
+  }
+
+
 }

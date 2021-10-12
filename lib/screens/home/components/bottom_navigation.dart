@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:pos_wappsi/screens/home/components/tab_item.dart';
 
 class BottomNavigation extends StatelessWidget {
@@ -11,11 +12,11 @@ class BottomNavigation extends StatelessWidget {
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
       items: [
-        _buildItem(TabItem.home, Icon(Icons.home)),
+        _buildItem(TabItem.home, Icon(FontAwesomeIcons.home)),
         _buildItem(TabItem.products, Icon(Icons.inventory_2)),
         
-        _buildItem(TabItem.clients, Icon(Icons.people_outline_outlined)),
-        _buildItem(TabItem.cashAccounting, Icon(Icons.monetization_on)),
+        _buildItem(TabItem.clients, Icon(FontAwesomeIcons.peopleArrows)),
+        _buildItem(TabItem.cashAccounting, Icon(FontAwesomeIcons.cashRegister)),
       ],
       onTap: (index) {
         onSelectTab(TabItem.values[index]);

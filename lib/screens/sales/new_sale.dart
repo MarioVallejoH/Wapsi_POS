@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pos_wappsi/components/back_app_bar.dart';
 import 'package:pos_wappsi/components/basic_widgets.dart';
 import 'package:pos_wappsi/components/button_global.dart';
 import 'package:pos_wappsi/constant.dart';
@@ -13,28 +14,25 @@ class NewSale extends StatefulWidget {
 }
 
 class _NewSaleState extends State<NewSale> {
-  // late Size _size;
+  late Size _size;
   late Color _pc;
 
   @override
   Widget build(BuildContext context) {
     _pc = Theme.of(context).primaryColor;
-    // _size = MediaQuery.of(context).size;
-    return Scaffold(body: SafeArea(child: _body()));
+    _size = MediaQuery.of(context).size;
+    return Scaffold(appBar: _appBar(), body: _body());
   }
 
   // TODO: load form fields based on data
   Widget _body() {
-    return Expanded(
-      child: _form(),
-    );
+    return _form();
   }
 
   Widget _form() {
     return Column(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        _appBar(),
         _userInfo(),
         Padding(
           padding: const EdgeInsets.only(bottom: 8),
@@ -45,10 +43,10 @@ class _NewSaleState extends State<NewSale> {
   }
 
   Widget _userInfo() {
-    return Padding(
+    return Container(
       padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: Wrap(
-        alignment: WrapAlignment.spaceBetween,
+      height: _size.height * 0.65,
+      child: ListView(
         children: [
           _branchOffice(),
           _document(),
@@ -77,39 +75,13 @@ class _NewSaleState extends State<NewSale> {
     return informationText('12232 - Nombres Apellidos', 'Vendedor', _pc);
   }
 
-  Widget _appBar() {
-    return Card(
-      elevation: 3.0,
-      child: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Row(
-          children: [
-            _back(),
-            SizedBox(
-              width: 10.0,
-            ),
-            _text(),
-            Spacer(),
-            // _cash(),
-            SizedBox(
-              width: 10.0,
-            ),
-            wappsiLogo(),
-          ],
-        ),
-      ),
-    );
-  }
-
-  Widget _back() {
-    return IconButton(
-        onPressed: () => Navigator.pop(context),
-        icon: Icon(Icons.arrow_back_ios_sharp));
+  PreferredSize _appBar() {
+    return appBar(context, _text());
   }
 
   Widget _text() {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
@@ -130,7 +102,9 @@ class _NewSaleState extends State<NewSale> {
 
   Widget _clients() {
     int _value = 1;
-    return Expanded(
+    return Container(
+      width: _size.width,
+      // TODO: Use dropdown_search widget fot this
       child: DropdownButtonFormField(
         decoration: InputDecoration(
             labelStyle: TextStyle(
@@ -154,7 +128,9 @@ class _NewSaleState extends State<NewSale> {
 
   Widget _clientBranchOffice() {
     int _value = 1;
-    return Expanded(
+    return Container(
+      width: _size.width,
+      // TODO: Use dropdown_search widget fot this
       child: DropdownButtonFormField(
         decoration: InputDecoration(
             labelStyle: TextStyle(

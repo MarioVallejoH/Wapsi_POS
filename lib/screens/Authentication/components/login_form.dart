@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:nb_utils/nb_utils.dart';
 import 'package:pos_wappsi/components/button_global.dart';
 import 'package:pos_wappsi/providers/login_form_provider.dart';
+import 'package:pos_wappsi/providers/user_provider.dart';
+import 'package:pos_wappsi/utils/alerts.dart';
 
 import 'package:provider/provider.dart';
 
@@ -72,11 +74,10 @@ class _LoginFormInputsState extends State<LoginFormInputs> {
         }
       },
       onChanged: (value) {
-        loginForm.user = value;
+        loginForm.passsword = value;
       },
       onFieldSubmitted: (_) => _login(loginForm, context),
       decoration: InputDecoration(
-        
         enabledBorder: OutlineInputBorder(),
         focusedBorder: UnderlineInputBorder(borderSide: BorderSide(width: 2)),
         prefixIcon: Icon(Icons.password),
@@ -95,16 +96,16 @@ class _LoginFormInputsState extends State<LoginFormInputs> {
       keyboardType: TextInputType.text,
       initialValue: loginForm.user,
       // nextFocus: passwordFocusNode,
-      
+
       validator: (value) {
         if (value!.length == 0) {
           return "Debe suministrar un nombre de usuario";
         }
       },
       onChanged: (value) {
-        loginForm.passsword = value;
+        loginForm.user = value;
       },
-      onFieldSubmitted: (_){
+      onFieldSubmitted: (_) {
         passwordFocusNode.requestFocus();
       },
       decoration: InputDecoration(
@@ -120,18 +121,15 @@ class _LoginFormInputsState extends State<LoginFormInputs> {
       BuildContext context, LoginFormProvider loginForm) {
     return ButtonGlobalWithoutIcon(
         buttontext: 'Iniciar sesión',
-        
         buttonDecoration: BoxDecoration(
-          
-          borderRadius: BorderRadius.all(
-            Radius.circular(5),
-
-          ),
-          // to change color based on _isloading property
-          color: loginForm.loading?Colors.grey:Theme.of(context).primaryColor
-        ),
-        onPressed: loginForm.loading ? null : () =>_login(loginForm, context)
-    );
+            borderRadius: BorderRadius.all(
+              Radius.circular(5),
+            ),
+            // to change color based on _isloading property
+            color: loginForm.loading
+                ? Colors.grey
+                : Theme.of(context).primaryColor),
+        onPressed: loginForm.loading ? null : () => _login(loginForm, context));
   }
 
   _login(LoginFormProvider loginForm, BuildContext context) async {
@@ -145,25 +143,31 @@ class _LoginFormInputsState extends State<LoginFormInputs> {
         duration: Duration(seconds: 15),
       ));
 
-      // TODO: method to send data to API, if fails return isLoading to false and set focus on username field
-
       // diable login button
-      loginForm.isLoading = true;
+      // loginForm.isLoading = true;
 
-      await Future.delayed(Duration(seconds: 2));
+      final res = await login(loginForm.toJson());
+
+      if (res['status'] == 1) {
+        ScaffoldMessenger.of(context).hideCurrentSnackBar();
+        WidgetsBinding.instance!.addPostFrameCallback((_) {
+          // TODO: Validate if cash_accounting is already opened, if true then we dont neet to open it again
+          // and we need to load its value to cashAccountingProvider
+
+          // TODO: use Navigator.psuhReplacementName() instead of pushNamed
+          Navigator.pushNamed(context, '/cash');
+        });
+      } else {
+        // hide loading snackbar
+        loginForm.isLoading = false;
+        ScaffoldMessenger.of(context).hideCurrentSnackBar();
+        simpleAlert(context, res['body']['messages']);
+      }
+      // await Future.delayed(Duration(seconds: 2));
 
       // hide loading snackbar
-      ScaffoldMessenger.of(context).hideCurrentSnackBar();
 
-      WidgetsBinding.instance!.addPostFrameCallback((_) {
-        // TODO: Validate if cash_accounting is already opened, if true then we dont neet to open it again
-        // and we need to load its value to cashAccountingProvider
-        
-        // TODO: use Navigator.psuhReplacementName() instead of pushNamed
-        loginForm.isLoading=false;
-        Navigator.pushNamed(context, '/cash');
-      });
-    }else{
+    } else {
       userFocusNode.requestFocus();
     }
   }

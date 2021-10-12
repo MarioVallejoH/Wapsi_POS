@@ -3,36 +3,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:nb_utils/nb_utils.dart';
 
-
-void simpleAlert(BuildContext context, String msj, String img) {
-  final size = MediaQuery.of(context).size;
-  showCupertinoDialog(
-      context: context,
-      builder: (context) {
-        return CupertinoAlertDialog(
-          title: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: SvgPicture.asset(
-              img,
-              height: size.height * 0.15,
-            ),
-          ),
-          content: Text(
-            msj,
-            textAlign: TextAlign.center,
-          ),
-          actions: <Widget>[
-            CupertinoDialogAction(
-              child: Text(
-                'Ok',
-                style: TextStyle(color: Colors.black87),
-                textAlign: TextAlign.center,
-              ),
-              onPressed: () => Navigator.of(context).pop(),
-            ),
-          ],
-        );
-      });
+void simpleAlert(BuildContext context, String msj) {
+  showConfirmDialogCustom(
+    context,
+    title: msj,
+    // negativeText: 'Cancelar',
+    positiveText: 'Aceptar',
+    onAccept: (_) {},
+  );
 }
 
 choiceAlert(BuildContext context, String msj, String img) async {
@@ -58,7 +36,6 @@ choiceAlert(BuildContext context, String msj, String img) async {
             Container(
               color: Colors.redAccent,
               child: CupertinoDialogAction(
-                
                 child: Text(
                   'Cancelar',
                   style: TextStyle(color: Colors.white),
@@ -88,26 +65,21 @@ choiceAlert(BuildContext context, String msj, String img) async {
   return result;
 }
 
-
-
-
-choiceAlertAndroid(BuildContext context, String msj,) async {
+choiceAlertAndroid(
+  BuildContext context,
+  String msj,
+) async {
   // final size = MediaQuery.of(context).size;
 
   bool result = false;
 
-  await showConfirmDialogCustom(
-      context,
+  await showConfirmDialogCustom(context,
       title: msj,
       negativeText: 'Cancelar',
-      positiveText: 'Aceptar',
-      onAccept: (_) {
-        result = true;
-      },
-      onCancel: (_) {
-      }
-    );
-  
+      positiveText: 'Aceptar', onAccept: (_) {
+    result = true;
+  }, onCancel: (_) {});
+
   return result;
 }
 

@@ -20,13 +20,13 @@ List<GridItems> freeIcons = [
   GridItems(
     title: 'Productos',
     route: "products",
-    icon: 'assets/images/stock.png',
+    icon: 'assets/images/box.png',
   ),
 
   GridItems(
     title: 'Clientes',
     route: "sotck",
-    icon: 'assets/images/customer.png',
+    icon: 'assets/images/partner.png',
 
   ),
   
@@ -43,7 +43,7 @@ List<GridItems> freeIcons = [
   GridItems(
     title: 'Entregas',
     route: "products",
-    icon: 'assets/images/delivery.png',
+    icon: 'assets/images/fast-delivery.png',
 
   ),
 ];

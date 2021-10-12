@@ -25,13 +25,15 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   ];
   PageController pageController = PageController(initialPage: 0);
-
+  late Size _size;
   @override
   Widget build(BuildContext context) {
+    _size = MediaQuery.of(context).size;
     return SafeArea(
         child: Scaffold(
           resizeToAvoidBottomInset: true,
           body: _body(),
+          appBar: _appBar(),
         ),
       ); 
       
@@ -58,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return SingleChildScrollView(
       child: Column(
         children: [
-          _appBar(),
+          
           _optionsMessage(),
           _options(),
           _newsMessage(),
@@ -69,25 +71,28 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   // appbar widgets
-  Widget _appBar() {
-    return Card(
-      elevation: 3.0,
-      child: Padding(
-        padding: const EdgeInsets.all(10.0),
-        child: Row(
-          children: [
-            wappsiLogo(),
-            SizedBox(
-              width: 10.0,
-            ),
-            _userKind(),
-            Spacer(),
-            // _cash(),
-            SizedBox(
-              width: 10.0,
-            ),
-            _notifications()
-          ],
+  PreferredSize _appBar() {
+    return PreferredSize(
+      preferredSize: new Size(_size.width,_size.height*0.12),
+      child: Card(
+        elevation: 3.0,
+        child: Padding(
+          padding: const EdgeInsets.all(10.0),
+          child: Row(
+            children: [
+              wappsiLogo(),
+              SizedBox(
+                width: 10.0,
+              ),
+              _userKind(),
+              Spacer(),
+              // _cash(),
+              SizedBox(
+                width: 10.0,
+              ),
+              _notifications()
+            ],
+          ),
         ),
       ),
     );

@@ -22,8 +22,8 @@ class HomeGridCards extends StatelessWidget {
               _navigation(context);
             },
             child: Container(
-              width: _size.width * 0.2,
-              height: _size.height * 0.07,
+              width: _size.width * 0.15,
+              height: _size.height * 0.055 ,
               child: Image(
                 fit: BoxFit.contain,
                 image: AssetImage(

@@ -38,6 +38,8 @@ dependencies:
   sqflite:
   flutter_svg: 0.22.0
   restart_app: ^1.1.0
+  font_awesome_flutter:
+  crypto:
 
 dev_dependencies:
   flutter_test:
